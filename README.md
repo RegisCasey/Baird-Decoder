@@ -10,10 +10,12 @@ To use this program, you will need to have the [Pillow/PIL](https://pypi.org/pro
 (Visual Studio Code, [Thonny](https://www.Thonny.org/), etc.) installed (both not included).
 
 You will also need a mechanical television signal, which has been provided in this repository to serve as an example.
-You can also make your own with the Baird Encoder program.
+A text file dump of a signal is also provided.
+You can also make your own signals with the Baird Encoder program.
 
 # HOW TO USE
-Open the `BairdDecoder-v0.2-RegisC.py` script in a code editor, and modify the values listed in **MAIN CONFIGURATIONS**.
+Open the `BairdDecoder-v0.2-RegisC.py` script in a code editor, and modify the values listed in **MAIN CONFIGURATIONS**, more specifically -
+`frame`, `outName`, and `DumpTxt`.
 Once you are done, run the script, and once the script is done, it will save the image and display the image the program had created from the
 audio samples.
 
@@ -21,7 +23,8 @@ audio samples.
 `frame = (x,y)` - Horizontal resolution, vertical resolution.
 **IF YOUR OUTPUT IMAGE IS ASKEWED/TILTED, ADJUST THE Y VALUE TO SEE IF THAT CORRECTS IT.**
 
-`outName` - Name of image file, all rips are saved as bitmap (`.bmp`) files.
+`outName` - Sets the name of the output image file, all rips are saved as bitmap (`.bmp`) files.
+**PLEASE BE AWARE THAT THE PROGRAM CAN, AND WILL OVERWRITE THE IMAGE IF YOU USE THE SAME NAME**
 
 `DumpTxt` - Name of frame dump .txt file. **Please include the .txt extension.**
 
