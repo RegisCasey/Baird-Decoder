@@ -18,6 +18,7 @@ resolutons (1088hz for example)
 go to EFFECT > CHANGE SPEED, and set the "New Length" to 1 sec.
 - Once that is done, click on ANALYZE > SAMPLE DATA EXPORT
 - Now make sure your settings are as followed:
+  
 	Limit output to first: (Your multiplied number)
 	Meaurement scale: Linear
 	File data format: Sample List (txt)
