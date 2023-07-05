@@ -1,12 +1,14 @@
 # Baird Decoder - A small tool to convert audio to images.
 
+**V1 is now released, I will update the `README` in the morning, as it mainly pertains to v0.2. If you want to use V1 before then, please see the Wiki, as V1 is mostly documented over there.**
+
 # INTRODUCTION
 For those who don't know, the mechanical television was first invented by John Logie Baird in the 1920s. How it worked was that it used a spinning Nipkow disk (a disk with a series of holes spiraling down towards the center) to mimick the raster of an electronic TV, and a flickering light. When the two are put together, you get an image. This program aims to take audio samples from mechanical TV signals, and convert them back into visible images. This program can also decode image audio signals created by the **[Baird Encoder](https://github.com/RegisCasey/Baird-Encoder)** program.
 
 # REQUIREMENTS
 **THIS IS A PYTHON SCRIPT, AND AS SUCH, IT IS ASSUMED THAT YOU HAVE AT LEAST PYTHON 3.6.X INSTALLED**
 
-To use this program, you will need to have the [Pillow/PIL](https://pypi.org/project/Pillow/) library and a Python code editor
+To use this program, you will need to have the [Pillow/PIL](https://pypi.org/project/Pillow/) and PySoundFile libraries, and a Python code editor
 (Visual Studio Code, [Thonny](https://www.Thonny.org/), etc.) installed (both not included).
 
 You will also need a mechanical television signal, which has been provided in this repository to serve as an example.
