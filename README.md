@@ -1,6 +1,9 @@
 # Baird Decoder - A small tool to convert audio to images.
 
-**V1 is now released, I will update the `README` in the morning, as it mainly pertains to v0.2. If you want to use V1 before then, please see the Wiki, as V1 is mostly documented over there.**
+***Now on Version 1!***
+
+![image](https://github.com/RegisCasey/Baird-Decoder/assets/138264475/78e010cb-f9df-4e10-a220-addf8d9492cf)
+
 
 # INTRODUCTION
 For those who don't know, the mechanical television was first invented by John Logie Baird in the 1920s. How it worked was that it used a spinning Nipkow disk (a disk with a series of holes spiraling down towards the center) to mimick the raster of an electronic TV, and a flickering light. When the two are put together, you get an image. This program aims to take audio samples from mechanical TV signals, and convert them back into visible images. This program can also decode image audio signals created by the **[Baird Encoder](https://github.com/RegisCasey/Baird-Encoder)** program.
@@ -8,95 +11,59 @@ For those who don't know, the mechanical television was first invented by John L
 # REQUIREMENTS
 **THIS IS A PYTHON SCRIPT, AND AS SUCH, IT IS ASSUMED THAT YOU HAVE AT LEAST PYTHON 3.6.X INSTALLED**
 
-To use this program, you will need to have the [Pillow/PIL](https://pypi.org/project/Pillow/) and PySoundFile libraries, and a Python code editor
-(Visual Studio Code, [Thonny](https://www.Thonny.org/), etc.) installed (both not included).
+To use this program, you will need to have the [Pillow/PIL](https://pypi.org/project/Pillow/) and [PySoundFile](https://pypi.org/project/PySoundFile/) libraries,  and a Python code editor (Visual Studio Code, [Thonny](https://thonny.org/), etc. installed (all not included).
 
 You will also need a mechanical television signal, which has been provided in this repository to serve as an example.
 A text file dump of a signal is also provided.
 You can also make your own signals with the [Baird Encoder](https://github.com/RegisCasey/Baird-Encoder) program.
 
 # HOW TO USE
-Open the `BairdDecoder-v0.2-RegisC.py` script in a code editor, and modify the values listed in **MAIN CONFIGURATIONS**, more specifically -
-`frame`, `outName`, and `DumpTxt`.
+*See the [wiki](https://github.com/RegisCasey/Baird-Decoder/wiki) for documentation on how to use this, it's too extensive for a "README" alone.*
+
 Once you are done, run the script, and once the script is done, it will save the image and display the image the program had created from the
 audio samples.
 
-# MAIN CONFIGURATIONS
-`frame = (x,y)` - Horizontal resolution, vertical resolution.
-**IF YOUR OUTPUT IMAGE IS ASKEWED/TILTED, ADJUST THE Y VALUE TO SEE IF THAT CORRECTS IT.**
-
-`outName` - Sets the name of the output image file, all rips are saved as bitmap (`.bmp`) files.
-**PLEASE BE AWARE THAT THE PROGRAM CAN, AND WILL OVERWRITE THE IMAGE IF YOU USE THE SAME NAME**
-
-`DumpTxt` - Name of frame dump .txt file. **Please include the .txt extension.**
-
-`VerticalOffset` - Shifts the image up or down
-
-`HorizontalOffset` = Shifts the image left or right
-
-# PICTURE CONTROL
-**It is not advised to modify these values. Do not report bugs if you modify these values.**
-
-In the script, you are going to look for `def generateFramePalette(dump):`. In the `for val in dump:` loop, you will find two
-lines that can be modified to adjust how the program processes images.
-
-- `val = val * -255` - This converts the audio value to an RGB value, but "-255" can be modified to adjust the image **contrast**.
--  `val = 255 - val - 164` - This inverts the image to a positive, but "164" can be modified to adjust the image **brightness**.
-
-**There should be no reason for these values to be changed.** The script was calibrated to ensure the most accurate image reproduction
-based on my testing, I'm only mentioning this for debugging purposes.
-
-
-# HOW TO CONVERT YOUR MECHANICAL TV SIGNALS INTO A FRAME DUMP TEXT FILE FOR THE INTERPRETER:
-*Requires [Audacity](https://www.audacityteam.org/) (not included)*
-
-- Determine the resolution of the video (example 32 x 34)
-- Multiply the two numbers (32 x 24 = 1088 for instance)
-- Remember that number.
-- Open your TV audio file in Audacity
-- Select a singular frame of the signal, and copy it.
-  (Frames look like a repeating pattern in the waveform)
-- Open a new Audacity file and paste the frame in there.
-- On the timeline, click on the audio name, and change the
-sample rate to the number you got from multiplying the
-resolutons (1088hz for example)
-	Hint: You might need to change the sample rate to a 
-	preset before you can put in a custom one.
-- (Optional) If you're not getting desired results,
-go to `EFFECT > CHANGE SPEED`, and set the "New Length" to 1 sec.
-- Once that is done, click on `ANALYZE > SAMPLE DATA EXPORT`
-- Now make sure your settings are as followed:
-
-  	`Limit output to first: (Your multiplied number)`
-  
-	`Meaurement scale: Linear`
-
-	`File data format: Sample List (txt)`
-
-	`Include header information: None`
-
-	`Optional header text: (Leave blank)`
-
-	`Channel layout for stereo: L Channel First`
-
-	`Show messages: None`
-
-	`File name: (Something distinguishable)`
-
-	`Output folder: (Where you can find it)`
-
 # LIMITATIONS:
-- This program can only convert individual frames into a visible image.
-- This program cannot rip data from audio files; you must provide a text file
-sample data export of a SINGULAR FRAME of the mechanical TV signal, as explained in this `README` file
-- This program only draws out an image from audio, only image controls you are given are brightness and contrast control.
+- This program can only dump images from audio files, it currently cannot replay the image frames as a video.
+- This program does NOT work in real-time; every audio sample must be dumped and loaded into system memory before the program
+  can interpretate them as images.
+- While the audio used for multi-frame ripping can be whatever (so long as the frame rate is a whole number), **for single frame ripping, the audio must still be 1 second long, and the sample rate must still be (imagewidth x imageheight).**
 
 # TO-DO:
 - Test if this program can draw standard definition analog TV signals, such as
 the "Voyager Golden Record images".
 - Make the program more user-friendly and configurable.
-- Have the program able to read from .wav files directly
+- Add the audio sample rate scaling feature to the single-frame ripping mode as well.
+- Implement a "calibration/testing mode" to generate the same image, multiple times, but each with different configurations, to show 
 
 # NOTICES
 - You are free to share this program, but you are not allowed to present it as your own creation. If you modify, improve, or integrate the script into your own creations,
   it's kindly requested for me to be included in your credits.
+
+# CHANGELOG
+
+## v1
+- First full number release!
+- Added support for reading `.wav` audio clips alongside text file dumps.
+- Now requires PySoundFile library for reading from `.wav` files.
+- Can read and produce multiple images from one audio clip, in a batch sequence. (Versions prior could only do one image per run.)
+- Can support almost every sample rate (audio) and framerate (image sequence).
+- (Almost) fixed image slanting issue, by adding a toggle (`SlantCorrection`) to enable or disable a correction adjustment. 
+- Added values to set directories for inputs and outputs.
+- Added basic image processing (Tinting, toning, and levels adjustment.).
+- Minor improvements.
+
+## v0.2 - July 3, 2023
+- First GitHub release.
+- Switched from reading dB values to Linear audio values, allowing for a much cleaner, and more accurate picture reproduction, which still could only be read from sample data export text files from *Audacity*.
+
+![dB-image-rip](https://github.com/RegisCasey/Baird-Decoder/assets/138264475/442ea80a-dc8c-488c-a623-25dd85d32a1a)
+![linear-image-rip](https://github.com/RegisCasey/Baird-Decoder/assets/138264475/02c0896a-53de-4314-a76a-2ff91eb57398) 
+![Recreation-Orig](https://github.com/RegisCasey/Baird-Decoder/assets/138264475/c8cd6633-4814-46cb-bb25-793de43d3f7a)
+(Image rights belong to Rebecca Parham/Let Me Explain Studios. Image was used for testing purposes.)
+
+- Added vertical and horizontal offset settings.
+
+## v0.1 (not publicly released)
+- Proof of concept.
+
