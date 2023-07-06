@@ -59,7 +59,6 @@ the "Voyager Golden Record images".
 
 ![dB-image-rip](https://github.com/RegisCasey/Baird-Decoder/assets/138264475/442ea80a-dc8c-488c-a623-25dd85d32a1a)
 ![linear-image-rip](https://github.com/RegisCasey/Baird-Decoder/assets/138264475/02c0896a-53de-4314-a76a-2ff91eb57398) 
-![Recreation-Orig](https://github.com/RegisCasey/Baird-Decoder/assets/138264475/c8cd6633-4814-46cb-bb25-793de43d3f7a)
 (Image rights belong to Rebecca Parham/Let Me Explain Studios. Image was used for testing purposes.)
 
 - Added vertical and horizontal offset settings.
